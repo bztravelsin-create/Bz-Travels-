@@ -1,162 +1,396 @@
+# Updated BZ Travels Website Code
+
+नीचे वाला पूरा code copy करके अपनी पुरानी `index.html` file की जगह paste कर दो।
+
+```html
 <!DOCTYPE html>
 <html lang="hi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BZ Travels - Taxi, Mini Bus & Tempo Traveller Booking</title>
+
   <style>
-    *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
-    body{background:#f6f7fb;color:#151515;line-height:1.5}
-    header{background:linear-gradient(135deg,#071735,#0d47a1);color:#fff;padding:18px 16px;position:sticky;top:0;z-index:10;box-shadow:0 3px 14px rgba(0,0,0,.2)}
-    .nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:14px}
-    .brand{font-size:24px;font-weight:800;letter-spacing:.5px}
-    .brand span{color:#ffd44a}
-    .nav a{color:#fff;text-decoration:none;font-weight:700;background:#ffb300;padding:10px 14px;border-radius:999px;color:#111}
-    .hero{background:linear-gradient(rgba(3,16,44,.78),rgba(3,16,44,.78)),url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1600&auto=format&fit=crop');background-size:cover;background-position:center;color:white;padding:68px 16px}
-    .hero-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
-    .hero h1{font-size:44px;line-height:1.1;margin-bottom:14px}
-    .hero p{font-size:18px;margin-bottom:20px;color:#eef3ff}
-    .btns{display:flex;flex-wrap:wrap;gap:12px}
-    .btn{display:inline-block;text-decoration:none;padding:13px 18px;border-radius:12px;font-weight:800}
-    .btn.primary{background:#ffb300;color:#111}.btn.secondary{background:#25d366;color:#fff}.btn.dark{background:#111;color:#fff}
-    .card{background:#fff;border-radius:22px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.14);color:#111}
-    .booking h2,.card h2{margin-bottom:14px;color:#0d47a1}
-    label{display:block;margin-top:12px;font-weight:700;color:#333}
-    input,select{width:100%;padding:12px;border:1px solid #d6d6d6;border-radius:10px;margin-top:6px;font-size:15px}
-    .estimate{margin-top:16px;padding:14px;background:#eef5ff;border-radius:12px;font-weight:800;color:#0d47a1}
-    section{max-width:1100px;margin:0 auto;padding:44px 16px}
-    .section-title{text-align:center;margin-bottom:24px}.section-title h2{font-size:32px;color:#0d47a1}.section-title p{color:#555;margin-top:6px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .service{background:#fff;border-radius:20px;padding:22px;box-shadow:0 7px 22px rgba(20,30,50,.08);border:1px solid #edf0f5}
-    .service .icon{font-size:34px;margin-bottom:10px}.service h3{margin-bottom:8px;color:#111}.service p{color:#555}
-    .rates{overflow:auto;background:#fff;border-radius:20px;box-shadow:0 7px 22px rgba(20,30,50,.08)}
-    table{width:100%;border-collapse:collapse;min-width:620px}th,td{padding:14px;border-bottom:1px solid #eee;text-align:left}th{background:#0d47a1;color:#fff}tr:last-child td{border-bottom:0}.note{margin-top:12px;color:#666;font-size:14px}
-    .why{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.why div{background:#fff;padding:18px;border-radius:16px;text-align:center;font-weight:800;box-shadow:0 6px 16px rgba(0,0,0,.06)}
-    .contact{background:linear-gradient(135deg,#0d47a1,#071735);border-radius:26px;color:#fff;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}.contact h2{font-size:30px}.contact p{color:#dfe8ff;margin:10px 0}
-    footer{text-align:center;background:#071735;color:#d8e4ff;padding:22px 16px;margin-top:20px}
-    .float-whatsapp{position:fixed;right:18px;bottom:18px;background:#25d366;color:#fff;text-decoration:none;padding:14px 18px;border-radius:999px;font-weight:900;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:20}
-    @media(max-width:850px){.hero-inner,.contact{grid-template-columns:1fr}.hero h1{font-size:34px}.grid{grid-template-columns:1fr}.why{grid-template-columns:1fr 1fr}.nav{align-items:flex-start}.brand{font-size:21px}}
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family:Arial,Helvetica,sans-serif
+    }
+
+    body{
+      background:#0b0b0b;
+      color:#fff;
+      line-height:1.5
+    }
+
+    header{
+      background:#111;
+      padding:18px 16px;
+      position:sticky;
+      top:0;
+      z-index:10;
+      border-bottom:1px solid #222;
+    }
+
+    .nav{
+      max-width:1100px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .brand{
+      font-size:28px;
+      font-weight:800;
+    }
+
+    .brand span{
+      color:#ffb300;
+    }
+
+    .call-btn{
+      background:#ffb300;
+      color:#000;
+      text-decoration:none;
+      padding:10px 18px;
+      border-radius:999px;
+      font-weight:700;
+    }
+
+    .hero{
+      padding:70px 16px;
+      background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+    }
+
+    .hero-inner{
+      max-width:1100px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+      align-items:center;
+    }
+
+    .hero h1{
+      font-size:48px;
+      margin-bottom:16px;
+    }
+
+    .hero p{
+      color:#ddd;
+      margin-bottom:20px;
+      font-size:18px;
+    }
+
+    .btns{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 20px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    .primary{
+      background:#ffb300;
+      color:#000;
+    }
+
+    .secondary{
+      background:#25d366;
+      color:#fff;
+    }
+
+    .card{
+      background:#151515;
+      border:1px solid #222;
+      padding:24px;
+      border-radius:22px;
+    }
+
+    .card h2{
+      margin-bottom:16px;
+      color:#ffb300;
+    }
+
+    label{
+      display:block;
+      margin-top:14px;
+      font-weight:700;
+    }
+
+    input,select{
+      width:100%;
+      padding:12px;
+      border-radius:10px;
+      border:1px solid #333;
+      margin-top:6px;
+      background:#0f0f0f;
+      color:#fff;
+    }
+
+    .estimate{
+      margin-top:18px;
+      background:#1f1f1f;
+      padding:16px;
+      border-radius:12px;
+      color:#ffb300;
+      font-weight:700;
+    }
+
+    section{
+      max-width:1100px;
+      margin:auto;
+      padding:60px 16px;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    .section-title h2{
+      font-size:34px;
+      color:#ffb300;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .service{
+      background:#151515;
+      padding:24px;
+      border-radius:18px;
+      border:1px solid #222;
+    }
+
+    .service h3{
+      margin:12px 0;
+    }
+
+    footer{
+      text-align:center;
+      padding:25px;
+      background:#111;
+      color:#aaa;
+    }
+
+    .float-whatsapp{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      background:#25d366;
+      color:#fff;
+      text-decoration:none;
+      padding:14px 18px;
+      border-radius:999px;
+      font-weight:700;
+    }
+
+    @media(max-width:850px){
+      .hero-inner{
+        grid-template-columns:1fr;
+      }
+
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:34px;
+      }
+    }
   </style>
 </head>
-<body>
-  <header>
-    <div class="nav">
-      <div class="brand">BZ <span>Travels</span></div>
-      <a href="tel:+917986760572">Call Now</a>
-    </div>
-  </header>
 
-  <div class="hero">
-    <div class="hero-inner">
-      <div>
-        <h1>All India Taxi, Mini Bus & Tempo Traveller Booking</h1>
-        <p>Family trip, airport pickup, wedding duty, outstation tour और corporate travel के लिए भरोसेमंद गाड़ी सेवा।</p>
-        <div class="btns">
-          <a class="btn primary" href="#booking">Book / Check Rate</a>
-          <a class="btn secondary" href="https://wa.me/917986760572?text=Hello%20BZ%20Travels%2C%20mujhe%20booking%20karni%20hai">WhatsApp Booking</a>
-          <a class="btn dark" href="tel:+919780792751">+91 9780792751</a>
-        </div>
-      </div>
-      <div class="card booking" id="booking">
-        <h2>Instant Fare Estimate</h2>
-        <label>Vehicle Type</label>
-        <select id="vehicle">
-          <option value="14">Taxi / Sedan - ₹14/km</option>
-          <option value="18">SUV / Ertiga - ₹18/km</option>
-          <option value="24">Mini Bus - ₹24/km</option>
-          <option value="35">Tempo Traveller - ₹35/km</option>
-        </select>
-        <label>Total KM</label>
-        <input id="km" type="number" placeholder="Example: 250" min="1" />
-        <label>Pickup City</label>
-        <input id="pickup" type="text" placeholder="Example: Chandigarh" />
-        <label>Drop / Destination</label>
-        <input id="drop" type="text" placeholder="Example: Delhi Airport" />
-        <div class="estimate" id="estimate">Estimated fare: ₹0</div>
-        <a class="btn secondary" id="waBtn" style="width:100%;text-align:center;margin-top:14px" href="#">Send on WhatsApp</a>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">BZ <span>Travels</span></div>
+    <a class="call-btn" href="tel:+917986760572">Call Now</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+
+    <div>
+      <h1>All India Taxi Booking</h1>
+      <p>
+        Taxi, SUV, Mini Bus aur Tempo Traveller booking service.
+        Pickup aur drop location daalte hi automatic fare show hoga.
+      </p>
+
+      <div class="btns">
+        <a class="btn primary" href="#booking">Check Fare</a>
+
+        <a class="btn secondary"
+           href="https://wa.me/917986760572?text=Hello%20BZ%20Travels">
+           WhatsApp Booking
+        </a>
       </div>
     </div>
+
+    <div class="card" id="booking">
+      <h2>Instant Fare Estimate</h2>
+
+      <label>Vehicle Type</label>
+      <select id="vehicle">
+        <option value="14">Taxi / Sedan - ₹14/km</option>
+        <option value="18">SUV / Ertiga - ₹18/km</option>
+        <option value="24">Mini Bus - ₹24/km</option>
+        <option value="35">Tempo Traveller - ₹35/km</option>
+      </select>
+
+      <label>Pickup Location</label>
+      <input id="pickup" type="text" placeholder="Enter pickup city" />
+
+      <label>Drop Location</label>
+      <input id="drop" type="text" placeholder="Enter destination" />
+
+      <div class="estimate" id="estimate">
+        Enter pickup and drop location
+      </div>
+
+      <a class="btn secondary"
+         id="waBtn"
+         style="display:block;text-align:center;margin-top:16px"
+         href="#">
+         Send on WhatsApp
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<section>
+  <div class="section-title">
+    <h2>Our Services</h2>
   </div>
 
-  <section>
-    <div class="section-title">
-      <h2>Our Services</h2>
-      <p>हर तरह की यात्रा के लिए गाड़ी उपलब्ध</p>
-    </div>
-    <div class="grid">
-      <div class="service"><div class="icon">🚕</div><h3>Taxi Booking</h3><p>Local, outstation, one-way और round trip taxi service.</p></div>
-      <div class="service"><div class="icon">🚐</div><h3>Tempo Traveller</h3><p>Family tour, group tour और शादी-ब्याह के लिए comfortable traveller.</p></div>
-      <div class="service"><div class="icon">🚌</div><h3>Mini Bus</h3><p>School, corporate, picnic और group travel के लिए mini bus.</p></div>
-    </div>
-  </section>
+  <div class="grid">
 
-  <section>
-    <div class="section-title">
-      <h2>Rate Card</h2>
-      <p>Customer को basic rate show होगा, बाकी details on-call discuss की जा सकती हैं।</p>
+    <div class="service">
+      <h3>🚕 Taxi Booking</h3>
+      <p>Local aur outstation taxi service.</p>
     </div>
-    <div class="rates">
-      <table>
-        <tr><th>Vehicle</th><th>Starting Rate</th><th>Best For</th></tr>
-        <tr><td>Taxi / Sedan</td><td>₹14/km</td><td>City & outstation ride</td></tr>
-        <tr><td>SUV / Ertiga</td><td>₹18/km</td><td>Family travel</td></tr>
-        <tr><td>Mini Bus</td><td>₹24/km</td><td>Group travel</td></tr>
-        <tr><td>Tempo Traveller</td><td>₹35/km</td><td>Tour, wedding, long route</td></tr>
-      </table>
+
+    <div class="service">
+      <h3>🚐 Tempo Traveller</h3>
+      <p>Family aur group travel ke liye.</p>
     </div>
-    <p class="note">Note: Toll, parking, state tax, driver allowance और extra charges booking के समय call पर confirm होंगे।</p>
-  </section>
 
-  <section>
-    <div class="section-title">
-      <h2>Why Choose BZ Travels?</h2>
+    <div class="service">
+      <h3>🚌 Mini Bus</h3>
+      <p>Wedding aur tour booking ke liye.</p>
     </div>
-    <div class="why">
-      <div>✅ Clean Cars</div>
-      <div>✅ Experienced Drivers</div>
-      <div>✅ All India Service</div>
-      <div>✅ Quick Booking</div>
-    </div>
-  </section>
 
-  <section>
-    <div class="contact">
-      <div>
-        <h2>Booking के लिए अभी संपर्क करें</h2>
-        <p>Pickup location, destination, date और vehicle type भेजें। हमारी team आपको जल्दी rate confirm करेगी।</p>
-      </div>
-      <div class="btns">
-        <a class="btn primary" href="tel:+917986760572">+91 7986760572</a>
-        <a class="btn secondary" href="https://wa.me/919780792751?text=Hello%20BZ%20Travels%2C%20mujhe%20travel%20booking%20karni%20hai">WhatsApp</a>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    © 2026 BZ Travels | Taxi • Mini Bus • Tempo Traveller | All India Service
-  </footer>
+<footer>
+  © 2026 BZ Travels | All India Taxi Service
+</footer>
 
-  <a class="float-whatsapp" href="https://wa.me/917986760572?text=Hello%20BZ%20Travels%2C%20mujhe%20booking%20karni%20hai">WhatsApp</a>
+<a class="float-whatsapp"
+   href="https://wa.me/917986760572?text=Hello%20BZ%20Travels">
+   WhatsApp
+</a>
 
-  <script>
-    const vehicle = document.getElementById('vehicle');
-    const km = document.getElementById('km');
-    const pickup = document.getElementById('pickup');
-    const drop = document.getElementById('drop');
-    const estimate = document.getElementById('estimate');
-    const waBtn = document.getElementById('waBtn');
+<script>
+const vehicle = document.getElementById('vehicle');
+const pickup = document.getElementById('pickup');
+const drop = document.getElementById('drop');
+const estimate = document.getElementById('estimate');
+const waBtn = document.getElementById('waBtn');
 
-    function updateFare(){
+function updateFare() {
+
+  if (!pickup.value || !drop.value) {
+    estimate.innerHTML = 'Enter pickup and drop location';
+    return;
+  }
+
+  const service = new google.maps.DistanceMatrixService();
+
+  service.getDistanceMatrix(
+    {
+      origins: [pickup.value],
+      destinations: [drop.value],
+      travelMode: 'DRIVING',
+      unitSystem: google.maps.UnitSystem.METRIC,
+    },
+
+    (response, status) => {
+
+      if (status !== 'OK') {
+        estimate.innerHTML = 'Location not found';
+        return;
+      }
+
+      const result = response.rows[0].elements[0];
+
+      if (result.status !== 'OK') {
+        estimate.innerHTML = 'Distance unavailable';
+        return;
+      }
+
+      const km = result.distance.value / 1000;
+
       const rate = Number(vehicle.value);
-      const distance = Number(km.value || 0);
-      const fare = rate * distance;
-      estimate.textContent = 'Estimated fare: ₹' + fare.toLocaleString('en-IN');
-      const vehicleName = vehicle.options[vehicle.selectedIndex].text;
-      const msg = `Hello BZ Travels, mujhe booking karni hai.%0AVehicle: ${vehicleName}%0AKM: ${distance}%0APickup: ${pickup.value}%0ADrop: ${drop.value}%0AEstimated Fare: ₹${fare}`;
-      waBtn.href = `https://wa.me/917986760572?text=${msg}`;
+
+      const fare = Math.round(km * rate);
+
+      estimate.innerHTML =
+        `Distance: ${result.distance.text}<br>
+         Estimated Fare: ₹${fare}`;
+
+      const vehicleName =
+        vehicle.options[vehicle.selectedIndex].text;
+
+      const msg =
+`Hello BZ Travels,
+Vehicle: ${vehicleName}
+Pickup: ${pickup.value}
+Drop: ${drop.value}
+Distance: ${result.distance.text}
+Estimated Fare: ₹${fare}`;
+
+      waBtn.href =
+`https://wa.me/917986760572?text=${encodeURIComponent(msg)}`;
     }
-    [vehicle, km, pickup, drop].forEach(el => el.addEventListener('input', updateFare));
-    updateFare();
-  </script>
+  );
+}
+
+[pickup, drop, vehicle].forEach(el => {
+  el.addEventListener('change', updateFare);
+});
+</script>
+
+<script async
+src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+</script>
+
 </body>
 </html>
+```
+
+बस नीचे जहाँ लिखा है:
+
+```html
+YOUR_API_KEY
+```
+
+वहाँ अपनी Google Maps API key डाल देना।
