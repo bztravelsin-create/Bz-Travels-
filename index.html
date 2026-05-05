@@ -1,378 +1,302 @@
-# BZ Travels — Same Website Layout + Minimal Premium Black Theme
-
-```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BZ Travels</title>
+  <title>BZ Travels | Premium Taxi Booking</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
+    :root{
+      --black:#050505;
+      --soft-black:#0d0d0f;
+      --card:#121216;
+      --gold:#ffb400;
+      --gold2:#ffd24d;
+      --muted:#b7b7b7;
+      --white:#ffffff;
+      --border:rgba(212,175,55,.28);
     }
-
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
     body{
-      background:#050505;
-      color:#fff;
+      font-family:'Poppins','Noto Sans Devanagari',sans-serif;
+      background:
+      linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.92)),
+      url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop') center/cover fixed;
+      
+      color:var(--white);
       overflow-x:hidden;
     }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    .navbar{
-      width:100%;
-      padding:18px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      position:fixed;
-      top:0;
-      z-index:1000;
-      background:rgba(0,0,0,0.75);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
-
-    .logo{
-      font-size:28px;
-      font-weight:700;
-      letter-spacing:1px;
-    }
-
-    .logo span{
-      color:#d4af37;
-    }
-
-    .nav-links a{
-      color:#fff;
-      text-decoration:none;
-      margin-left:24px;
-      font-size:15px;
-      transition:0.3s;
-    }
-
-    .nav-links a:hover{
-      color:#d4af37;
-    }
-
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:120px 8% 60px;
-      background:
-      linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
-      url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
-    }
-
-    .hero-content h1{
-      font-size:62px;
-      margin-bottom:18px;
-      line-height:1.2;
-    }
-
-    .hero-content h1 span{
-      color:#d4af37;
-    }
-
-    .hero-content p{
-      color:#cfcfcf;
-      max-width:750px;
-      margin:auto;
-      line-height:1.8;
-      font-size:18px;
-    }
-
-    .hero-btns{
-      margin-top:35px;
-      display:flex;
-      gap:18px;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      padding:14px 32px;
-      border-radius:40px;
-      border:none;
-      cursor:pointer;
-      font-size:15px;
-      font-weight:600;
-      transition:0.3s;
-      text-decoration:none;
-      display:inline-block;
-    }
-
-    .btn-gold{
-      background:#d4af37;
-      color:#000;
-    }
-
-    .btn-gold:hover{
-      background:#fff;
-      transform:translateY(-3px);
-    }
-
-    .btn-dark{
-      background:transparent;
-      border:1px solid #555;
-      color:#fff;
-    }
-
-    .btn-dark:hover{
-      border-color:#d4af37;
-      color:#d4af37;
-    }
-
-    section{
-      padding:90px 8%;
-    }
-
-    .section-title{
-      text-align:center;
-      margin-bottom:55px;
-    }
-
-    .section-title h2{
-      font-size:42px;
-      margin-bottom:12px;
-    }
-
-    .section-title p{
-      color:#aaa;
-    }
-
-    .services{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:28px;
-    }
-
-    .service-card{
-      background:#111;
-      padding:35px 28px;
-      border-radius:22px;
-      border:1px solid rgba(255,255,255,0.06);
-      transition:0.3s;
-    }
-
-    .service-card:hover{
-      transform:translateY(-10px);
-      border-color:#d4af37;
-      box-shadow:0 0 25px rgba(212,175,55,0.15);
-    }
-
-    .service-card h3{
-      margin-bottom:14px;
-      color:#d4af37;
-    }
-
-    .service-card p{
-      color:#bdbdbd;
-      line-height:1.7;
-      font-size:14px;
-    }
-
-    .fleet{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:25px;
-    }
-
-    .fleet-card{
-      background:#111;
-      border-radius:22px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.05);
-      transition:0.3s;
-    }
-
-    .fleet-card:hover{
-      transform:translateY(-8px);
-      border-color:#d4af37;
-    }
-
-    .fleet-card img{
-      width:100%;
-      height:220px;
-      object-fit:cover;
-    }
-
-    .fleet-content{
-      padding:22px;
-    }
-
-    .fleet-content h3{
-      margin-bottom:10px;
-    }
-
-    .fleet-content p{
-      color:#bbb;
-      font-size:14px;
-      line-height:1.7;
-    }
-
-    .contact-box{
-      background:#111;
-      border-radius:28px;
-      padding:55px;
-      text-align:center;
-      border:1px solid rgba(255,255,255,0.08);
-    }
-
-    .contact-box h2{
-      font-size:38px;
-      margin-bottom:15px;
-    }
-
-    .contact-box p{
-      color:#bbb;
-      margin-bottom:28px;
-    }
-
-    .contact-info{
-      display:flex;
-      justify-content:center;
-      gap:25px;
-      flex-wrap:wrap;
-      margin-top:20px;
-    }
-
-    .contact-info a{
-      text-decoration:none;
-      color:#fff;
-      background:#1b1b1b;
-      padding:14px 22px;
-      border-radius:50px;
-      border:1px solid #333;
-      transition:0.3s;
-    }
-
-    .contact-info a:hover{
-      background:#d4af37;
-      color:#000;
-    }
-
-    footer{
-      padding:30px 8%;
-      text-align:center;
-      border-top:1px solid rgba(255,255,255,0.08);
-      color:#999;
-      background:#0a0a0a;
-    }
-
-    @media(max-width:768px){
-
-      .navbar{
-        padding:16px 5%;
-      }
-
-      .nav-links{
-        display:none;
-      }
-
-      .hero-content h1{
-        font-size:42px;
-      }
-
-      .hero-content p{
-        font-size:15px;
-      }
-
-      .section-title h2{
-        font-size:32px;
-      }
-
-      .contact-box{
-        padding:35px 20px;
-      }
-
-      .contact-box h2{
-        font-size:30px;
-      }
-    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1160px,92%);margin:auto}
+    .topbar{background:#000;border-bottom:1px solid var(--border);font-size:14px;color:var(--muted)}
+    .topbar .container{display:flex;justify-content:space-between;gap:16px;padding:10px 0;flex-wrap:wrap}
+    .navbar{position:sticky;top:0;z-index:20;background:rgba(5,5,5,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.4px}
+    .logo-mark{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),#805f12);color:#000;font-weight:900;box-shadow:0 0 32px rgba(212,175,55,.35)}
+    .nav-links{display:flex;gap:22px;color:#e8e8e8;font-size:15px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border-radius:999px;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#000;font-weight:800;border:0;box-shadow:0 10px 34px rgba(212,175,55,.22);cursor:pointer}
+    .btn.outline{background:transparent;color:var(--gold2);border:1px solid var(--border);box-shadow:none}
+    .hero{padding:84px 0 54px;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:46px;align-items:center}
+    .badge{display:inline-flex;padding:8px 14px;border:1px solid var(--border);border-radius:999px;color:var(--gold2);background:rgba(212,175,55,.07);font-size:14px;margin-bottom:18px}
+    h1{font-size:clamp(38px,6vw,76px);line-height:1.04;letter-spacing:-2px;margin-bottom:22px}
+    .gold-text{background:linear-gradient(90deg,var(--gold2),var(--gold));-webkit-background-clip:text;color:transparent}
+    .hero p{color:var(--muted);font-size:18px;line-height:1.75;max-width:650px;margin-bottom:30px}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .stat{padding:16px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.035)}
+    .stat b{font-size:24px;color:var(--gold2)}.stat span{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+    .hero-card{position:relative;border:1px solid var(--border);border-radius:34px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02));padding:22px;box-shadow:0 30px 90px rgba(0,0,0,.6);overflow:hidden}
+    .hero-card:before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at 70% 10%,rgba(255,221,117,.25),transparent 34%);pointer-events:none}
+    .car-visual{min-height:330px;border-radius:26px;background:linear-gradient(145deg,#171717,#050505);border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;position:relative;overflow:hidden}
+    .car-shape{width:82%;height:130px;border-radius:90px 110px 44px 44px;background:linear-gradient(180deg,#1e1e22,#060606);border:2px solid rgba(212,175,55,.6);box-shadow:0 0 55px rgba(212,175,55,.24);position:relative}
+    .car-shape:before{content:"BZ TRAVELS";position:absolute;top:42px;left:50%;transform:translateX(-50%);color:var(--gold2);font-weight:900;letter-spacing:3px;white-space:nowrap}
+    .car-shape:after{content:"";position:absolute;bottom:-24px;left:12%;width:76%;height:22px;background:rgba(212,175,55,.22);filter:blur(18px)}
+    .wheel{position:absolute;bottom:-28px;width:58px;height:58px;background:#000;border:8px solid #242424;border-radius:50%;box-shadow:inset 0 0 0 4px var(--gold)}
+    .wheel.one{left:17%}.wheel.two{right:17%}
+    section{padding:72px 0}.section-head{text-align:center;margin-bottom:36px}.section-head h2{font-size:clamp(28px,4vw,46px);margin-bottom:12px}.section-head p{color:var(--muted);max-width:720px;margin:auto;line-height:1.7}
+    .services,.fleet{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.09);border-radius:24px;padding:24px;transition:.25s;position:relative;overflow:hidden}
+    .card:hover{transform:translateY(-5px);border-color:var(--border);box-shadow:0 20px 55px rgba(0,0,0,.4)}
+    .icon{width:50px;height:50px;border-radius:16px;background:rgba(212,175,55,.12);border:1px solid var(--border);display:grid;place-items:center;font-size:24px;margin-bottom:18px}
+    .card h3{font-size:20px;margin-bottom:10px}.card p,.card li{color:var(--muted);line-height:1.65;font-size:15px}.card ul{padding-left:18px;margin-top:12px}
+    .price{font-size:28px;font-weight:900;color:var(--gold2);margin:14px 0 6px}.small{font-size:13px;color:#8f8f8f}
+    .booking-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:start}
+    .booking-info{border:1px solid var(--border);border-radius:30px;padding:30px;background:rgba(212,175,55,.06)}
+    .form{background:#0d0d10;border:1px solid rgba(255,255,255,.1);border-radius:30px;padding:28px;box-shadow:0 26px 70px rgba(0,0,0,.42)}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:8px}.field.full{grid-column:1/-1}
+    label{font-size:13px;color:var(--gold2);font-weight:700}input,select,textarea{width:100%;background:#050506;border:1px solid rgba(255,255,255,.12);color:#fff;border-radius:14px;padding:14px;font:inherit;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--gold)}textarea{min-height:100px;resize:vertical}
+    .whatsapp-float{position:fixed;right:18px;bottom:18px;z-index:50;background:#25D366;color:#fff;border-radius:999px;padding:15px 19px;font-weight:900;box-shadow:0 12px 38px rgba(0,0,0,.45)}
+    footer{padding:34px 0;border-top:1px solid rgba(255,255,255,.08);color:var(--muted);text-align:center;background:#030303}
+    @media(max-width:900px){.hero-grid,.booking-wrap{grid-template-columns:1fr}.services,.fleet{grid-template-columns:1fr 1fr}.nav-links{display:none}.stats{grid-template-columns:1fr 1fr}.car-visual{min-height:260px}}
+    @media(max-width:560px){.services,.fleet,.form-grid,.stats{grid-template-columns:1fr}h1{letter-spacing:-1px}.topbar .container{font-size:12px}.hero{padding-top:54px}.btn{width:100%}}
   </style>
 </head>
 <body>
+  <div class="topbar">
+    <div class="container">
+      <span>📍 All India Taxi Service</span>
+      <span>📞 +91 7986760572 / +91 9780792751</span>
+    </div>
+  </div>
 
-  <style>
-    body{
-      background:#050505 !important;
-      color:#ffffff !important;
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a class="logo" href="#"><span class="logo-mark">BZ</span><span>BZ Travels</span></a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#fleet">Fleet & Rates</a>
+        <a href="#booking">Booking</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="btn" href="tel:+917986760572">Call Now</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">Luxury • Safe • Reliable Taxi Booking</span>
+        <h1>Book Your <span class="gold-text">Premium Taxi</span> Anywhere in India</h1>
+        <p>BZ Travels के साथ premium taxi booking experience पाएँ। Luxury black & gold themed service, clean vehicles, experienced drivers और all India taxi service के साथ local, outstation, airport pickup-drop, wedding duty और corporate travel available.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#booking">Book Taxi Now</a>
+          <a class="btn outline" href="https://wa.me/917986760572?text=Hello%20BZ%20Travels%2C%20I%20want%20to%20book%20a%20taxi" target="_blank">WhatsApp Booking</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>24/7</b><span>Booking Support</span></div>
+          <div class="stat"><b>All India</b><span>Taxi Service</span></div>
+          <div class="stat"><b>Premium</b><span>Clean Vehicles</span></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="car-visual" style="background:url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=1400&auto=format&fit=crop') center/cover;border:2px solid rgba(255,180,0,.35)">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.72))"></div>
+          <div style="position:relative;z-index:2;text-align:center;padding:20px">
+            <h2 style="font-size:52px;line-height:1.05;font-weight:900;text-transform:uppercase">Travel <span class="gold-text">Beyond Limits!</span></h2>
+            <p style="margin-top:14px;color:#ddd">Comfort • Safety • Reliability</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <h2>Our <span class="gold-text">Services</span></h2>
+        <p>हर तरह की taxi booking के लिए one-stop solution — comfort, safety और best service के साथ।</p>
+      </div>
+      <div class="services">
+        <div class="card"><div class="icon">🚕</div><h3>Local Taxi Booking</h3><p>City travel, hourly package और day-use taxi booking के लिए reliable service.</p></div>
+        <div class="card"><div class="icon">🛣️</div><h3>Outstation Trips</h3><p>One-way और round-trip outstation rides के लिए Sedan, SUV, Innova और Traveller options.</p></div>
+        <div class="card"><div class="icon">✈️</div><h3>Airport Pickup/Drop</h3><p>Time पर pickup/drop, professional driver और comfortable ride experience.</p></div>
+        <div class="card"><div class="icon">💍</div><h3>Wedding & Event Duty</h3><p>Marriage, family function, group travel और VIP guest movement के लिए vehicles.</p></div>
+        <div class="card"><div class="icon">🏢</div><h3>Corporate Booking</h3><p>Office duty, business travel और vendor duty के लिए systematic taxi service.</p></div>
+        <div class="card"><div class="icon">🚌</div><h3>Group Travel</h3><p>Mini Bus और Tempo Traveller के साथ family/group tours comfortable बनाएं।</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fleet">
+    <div class="container">
+      <div class="section-head">
+        <h2>Fleet & <span class="gold-text">Rates</span></h2>
+        <p>नीचे rate cards editable हैं। आपके exact rates मिलते ही इन्हें final कर दिया जाएगा।</p>
+      </div>
+      <div class="fleet">
+        
+        <div class="card"><div style="display:flex;justify-content:center;align-items:center;height:220px;background:linear-gradient(180deg,rgba(255,180,0,.05),transparent);border-radius:22px;margin-bottom:18px"><img src="https://pngimg.com/d/toyota_PNG1917.png" style="max-width:100%;max-height:200px;object-fit:contain;filter:drop-shadow(0 20px 30px rgba(0,0,0,.55))"></div><div class="icon">🚘</div><h3>Sedan</h3><p>Swift Dzire / Similar</p><div class="price">₹15 / KM</div><span class="small">Comfortable 4 Seater Sedan</span></div>
+        <div class="card"><div style="display:flex;justify-content:center;align-items:center;height:220px;background:linear-gradient(180deg,rgba(255,180,0,.05),transparent);border-radius:22px;margin-bottom:18px"><img src="https://pngimg.com/d/toyota_PNG1921.png" style="max-width:100%;max-height:200px;object-fit:contain;filter:drop-shadow(0 20px 30px rgba(0,0,0,.55))"></div><div class="icon">🚙</div><h3>Ertiga SUV</h3><p>6/7 Seater Family Car</p><div class="price">₹20 / KM</div><span class="small">Premium family SUV</span></div>
+        <div class="card"><div style="display:flex;justify-content:center;align-items:center;height:220px;background:linear-gradient(180deg,rgba(255,180,0,.05),transparent);border-radius:22px;margin-bottom:18px"><img src="https://pngimg.com/d/toyota_PNG1923.png" style="max-width:100%;max-height:205px;object-fit:contain;filter:drop-shadow(0 20px 35px rgba(0,0,0,.65))"></div><div class="icon">✨</div><h3>Innova Crysta</h3><p>Luxury 6/7 Seater</p><div class="price">₹25 / KM</div><span class="small">Luxury premium experience</span></div>
+        <div class="card"><div style="display:flex;justify-content:center;align-items:center;height:220px;background:linear-gradient(180deg,rgba(255,180,0,.05),transparent);border-radius:22px;margin-bottom:18px"><img src="https://pngimg.com/d/minibus_PNG32.png" style="max-width:100%;max-height:200px;object-fit:contain;filter:drop-shadow(0 20px 30px rgba(0,0,0,.55))"></div><div class="icon">🚐</div><h3>Tempo Traveller</h3><p>9/12/17 Seater</p><div class="price">₹35 / KM</div><span class="small">Best for tours & groups</span></div>
+        <div class="card"><div style="display:flex;justify-content:center;align-items:center;height:220px;background:linear-gradient(180deg,rgba(255,180,0,.05),transparent);border-radius:22px;margin-bottom:18px"><img src="https://pngimg.com/d/bus_PNG8617.png" style="max-width:100%;max-height:200px;object-fit:contain;filter:drop-shadow(0 20px 30px rgba(0,0,0,.55))"></div><div class="icon">🚌</div><h3>Mini Bus</h3><p>20/30/40 Seater</p><div class="price">On Call</div><span class="small">Wedding & group travel</span></div>
+        <div class="card"><div class="icon">⭐</div><h3>Custom Package</h3><p>Local / Outstation / Wedding</p><div class="price">On Call</div><span class="small">Best quote on booking</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="booking">
+    <div class="container booking-wrap">
+      <div class="booking-info">
+        <div style="background:#000;border:1px solid rgba(212,175,55,.25);padding:18px;border-radius:18px;margin-bottom:22px">
+          <h3 style="margin-bottom:10px;color:var(--gold2)">Live Fare Calculator</h3>
+          <p style="color:var(--muted);line-height:1.7">Customer pickup और drop location डालते ही estimated distance और selected vehicle के हिसाब से automatic fare दिखेगा।</p>
+        </div>
+        <span class="badge">Fast Booking</span>
+        <h2>Book Your Ride in Minutes</h2>
+        <p style="color:var(--muted);line-height:1.75;margin:14px 0 22px">Form submit करते ही WhatsApp पर आपकी booking details तैयार हो जाएंगी। Customer pickup, destination, date और vehicle type भेज सकता है।</p>
+        <ul style="color:var(--muted);line-height:2;padding-left:18px">
+          <li>Clean & comfortable vehicles</li>
+          <li>Experienced drivers</li>
+          <li>All India booking support</li>
+          <li>Call/WhatsApp confirmation</li>
+        </ul>
+      </div>
+      <form class="form" onsubmit="sendWhatsApp(event)">
+        <div class="form-grid">
+          
+          <div class="field"><label>Pickup Location</label><input id="pickup" required placeholder="Pickup City/Address"></div>
+          <div class="field"><label>Drop Location</label><input id="drop" required placeholder="Drop City/Address"></div>
+          <div class="field"><label>Travel Date</label><input id="date" type="date" required></div>
+          <div class="field"><label>Pickup Time</label><input id="time" type="time" required></div>
+          <div class="field"><label>Vehicle Type</label><select id="vehicle"><option>Sedan</option><option>SUV</option><option>Innova</option><option>Tempo Traveller</option><option>Mini Bus</option><option>Other</option></select></div>
+          <div class="field full"><label>Message</label><textarea id="msg" placeholder="Trip details / passengers / special requirement"></textarea></div>
+          <div class="field full">
+            <div style="padding:18px;border-radius:18px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.25)">
+              <h3 style="margin-bottom:12px;color:var(--gold2)">Estimated Fare</h3>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                <div>
+                  <small style="color:#aaa">Estimated Distance</small>
+                  <div id="distanceResult" style="font-size:28px;font-weight:800;margin-top:6px">0 KM</div>
+                </div>
+                <div>
+                  <small style="color:#aaa">Estimated Price</small>
+                  <div id="fareResult" style="font-size:28px;font-weight:800;margin-top:6px;color:var(--gold2)">₹0</div>
+                </div>
+              </div>
+              <p style="margin-top:10px;color:#9e9e9e;font-size:13px">Final fare toll tax / state tax / parking के अनुसार बदल सकता है।</p>
+            </div>
+          </div>
+          <div class="field full"><button class="btn" type="submit">Send Booking on WhatsApp</button></div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2>Contact <span class="gold-text">BZ Travels</span></h2>
+        <p>Taxi booking के लिए call या WhatsApp करें।</p>
+      </div>
+      <div class="services">
+        <div class="card"><div class="icon">📞</div><h3>Phone</h3><p>+91 7986760572<br>+91 9780792751</p></div>
+        <div class="card"><div class="icon">💬</div><h3>WhatsApp</h3><p>Instant booking confirmation के लिए WhatsApp करें।</p></div>
+        <div class="card"><div class="icon">📍</div><h3>Service Area</h3><p>All India taxi booking service available.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <a class="whatsapp-float" href="https://wa.me/917986760572?text=Hello%20BZ%20Travels%2C%20I%20want%20to%20book%20a%20taxi" target="_blank">WhatsApp</a>
+
+  <footer>
+    <div class="container">© 2018 BZ Travels. All Rights Reserved. Premium Taxi Service Across India.</div>
+  </footer>
+
+  <script>
+    const vehicleRates={
+      'Sedan':15,
+      'SUV':20,
+      'Innova':25,
+      'Tempo Traveller':35,
+      'Mini Bus':40,
+      'Other':20
+    };
+
+    async function calculateFare(){
+      const pickup=document.getElementById('pickup').value;
+      const drop=document.getElementById('drop').value;
+      const vehicle=document.getElementById('vehicle').value;
+
+      if(!pickup || !drop) return;
+
+      const cityDistances={
+        'amritsar-chandigarh':230,
+        'chandigarh-amritsar':230,
+        'delhi-chandigarh':250,
+        'chandigarh-delhi':250,
+        'amritsar-delhi':450,
+        'delhi-amritsar':450,
+        'ludhiana-chandigarh':110,
+        'chandigarh-ludhiana':110,
+        'jalandhar-amritsar':85,
+        'amritsar-jalandhar':85,
+        'jalandhar-chandigarh':145,
+        'chandigarh-jalandhar':145,
+        'mohali-delhi':265,
+        'delhi-mohali':265
+      };
+
+      const key=(pickup+'-'+drop).toLowerCase().trim();
+      let estimatedKm=cityDistances[key];
+
+      if(!estimatedKm){
+        document.getElementById('distanceResult').innerText='Route Not Found';
+        document.getElementById('fareResult').innerText='Enter Valid Route';
+        return;
+      }
+      const rate=vehicleRates[vehicle] || 20;
+      const fare=estimatedKm*rate;
+
+      document.getElementById('distanceResult').innerText=estimatedKm+' KM';
+      document.getElementById('fareResult').innerText='₹'+fare;
     }
 
-    header, nav, .navbar, .topbar{
-      background:#0d0d0d !important;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
+    document.addEventListener('DOMContentLoaded',()=>{
+      ['pickup','drop','vehicle'].forEach(id=>{
+        document.getElementById(id).addEventListener('change',calculateFare);
+      });
+    });
 
-    .card, .service-box, .booking-box, .vehicle-box, .form-box{
-      background:#111111 !important;
-      border:1px solid rgba(255,255,255,0.08) !important;
-      border-radius:18px;
-      color:#ffffff !important;
+    
+    function sendWhatsApp(e){
+      e.preventDefault();
+      
+      const pickup=document.getElementById('pickup').value;
+      const drop=document.getElementById('drop').value;
+      const date=document.getElementById('date').value;
+      const time=document.getElementById('time').value;
+      const vehicle=document.getElementById('vehicle').value;
+      const msg=document.getElementById('msg').value;
+      const text=`Hello BZ Travels,%0A%0AI want to book a taxi.%0A%0APickup: ${pickup}%0ADrop: ${drop}%0ADate: ${date}%0ATime: ${time}%0AVehicle: ${vehicle}%0AMessage: ${msg}`;
+      window.open(`https://wa.me/917986760572?text=${text}`,'_blank');
     }
-
-    h1,h2,h3,h4,h5{
-      color:#ffffff !important;
-    }
-
-    p,span,label{
-      color:#cfcfcf !important;
-    }
-
-    .btn,
-    button{
-      background:#d4af37 !important;
-      color:#000 !important;
-      border:none !important;
-      border-radius:40px;
-      font-weight:600;
-    }
-
-    .btn:hover,
-    button:hover{
-      background:#ffffff !important;
-      color:#000 !important;
-    }
-
-    input,select,textarea{
-      background:#1a1a1a !important;
-      color:#ffffff !important;
-      border:1px solid #333 !important;
-    }
-
-    footer{
-      background:#0a0a0a !important;
-      color:#999 !important;
-      border-top:1px solid rgba(255,255,255,0.08);
-    }
-  </style>
-
+  </script>
 </body>
 </html>
-```
-
-# GitHub पर कैसे अपडेट करना है
-
-1. GitHub repository खोलो
-2. index.html पर क्लिक करो
-3. ✏️ Edit (pencil icon) दबाओ
-4. पुराना code delete करो
-5. ऊपर वाला पूरा code paste करो
-6. नीचे जाकर “Commit changes” दबाओ
-7. 1-2 मिनट बाद website auto update हो जाएगी
